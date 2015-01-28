@@ -35,7 +35,11 @@
     CGRect frame = tweetLabel.frame;
     frame.size.height = size.height;
     tweetLabel.frame = frame;
-    
+
+    [tweetLabel setAttributes:@{NSForegroundColorAttributeName : [UIColor redColor]} hotWord:STTweetHashtag];
+    [tweetLabel setAttributes:@{NSForegroundColorAttributeName : [UIColor blueColor]} hotWord:STTweetLink];
+    [tweetLabel setAttributes:@{NSForegroundColorAttributeName : [UIColor greenColor]} hotWord:STTweetHandle];
+
     [tweetLabel setDetectionBlock:^(STTweetHotWord hotWord, NSString *string, NSString *protocol, NSRange range) {
         NSArray *hotWords = @[@"Handle", @"Hashtag", @"Link"];
         
